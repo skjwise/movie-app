@@ -14,7 +14,43 @@
 
 
 
-// document.addEventListener("DOMContentLoaded", ()=>{
-    // const baseURL = 
+document.addEventListener("DOMContentLoaded", ()=>{
+    const apibaseURL = "https://api.themoviedb.org/3/movie/550?api_key=eacd0d5f3e163cc975fd29fceb3caf04"
 
-// })
+    // function fetchMovies(){
+    //     fetch(apibaseURL)
+    //     .then(function(response){
+    //         response.json()
+    //     })
+    // }
+
+    function renderMovies(){
+        fetch(apibaseURL)
+        .then(function(movies){
+            for (let i = 0; i < movies.length; i++){
+                renderMovie(movies[i])
+            }
+        })
+    }
+
+    function renderMovie(movie){
+        console.log('working')
+        const card = document.createElement('div')
+        card.classList.add("card")
+        card.innerHTML = `
+        <h3>${movie.title}</h3>
+        <img src=${movie.image}>
+        <p> ${movie.likes}</p>
+        <button class="like-btn" id="${movie.id}> Like </button>
+        `
+        //append the new card
+        document.querySelector("#movie-collection").appendChild(card)
+    }
+
+
+
+
+
+
+    renderMovies();
+})
