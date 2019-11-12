@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         document.querySelector("#movie-collection").appendChild(card)
     }
 
-
+// for the commit
 
 
 
