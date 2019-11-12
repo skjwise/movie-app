@@ -13,19 +13,18 @@
 //If you have enough time - create a function that lets the user unlike a selected movie.
 
 
-
 document.addEventListener("DOMContentLoaded", ()=>{
     const apibaseURL = "https://api.themoviedb.org/3/movie/550?api_key=eacd0d5f3e163cc975fd29fceb3caf04"
 
     // function fetchMovies(){
-    //     fetch(apibaseURL)
+    //     return fetch(apibaseURL)
     //     .then(function(response){
-    //         response.json()
+    //         return response.json()
     //     })
     // }
 
     function renderMovies(){
-        fetch(apibaseURL)
+        return fetch(apibaseURL)
         .then(function(movies){
             for (let i = 0; i < movies.length; i++){
                 renderMovie(movies[i])
@@ -43,7 +42,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         <p> ${movie.likes}</p>
         <button class="like-btn" id="${movie.id}> Like </button>
         `
-        //append the new card
         document.querySelector("#movie-collection").appendChild(card)
     }
 
